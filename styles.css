@@ -1,8 +1,19 @@
+body {
+}
+
 .weather {
-  background-color: blue;
   height: 50px;
+}
+
+.header {
+  box-shadow: 0 8px 6px -3px lightgray;
 }
 
 h1 {
   color: blue;
+  padding: 20px;
+}
+
+#newsCarousel {
+  max-height: 400px;
 }
