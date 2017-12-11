@@ -39,6 +39,9 @@ body {
   height: 500px;
   max-height: 500px;
 }
+hr {
+  margin: 0;
+}
 
 #author {
   font-weight: 200;
