@@ -43,10 +43,10 @@ $(document).ready(function() {
 
 
     function newsSuccess(newsData) {
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 4; i++) {
         let newsArticle = newsData.results[i];
-        let carouselDivActive = `<div class="carousel-item active"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
-        let carouselDiv = `<div class="carousel-item"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
+        let carouselDivActive = `<div class="carousel-item active"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}"" target="_blank"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
+        let carouselDiv = `<div class="carousel-item"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}" target="_blank"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
           if (i === 0) {
             $(".carousel-inner").append(carouselDivActive);
           } else {
