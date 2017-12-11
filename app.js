@@ -1,7 +1,7 @@
 console.log("js is linked");
 
 $(document).ready(function() {
-  console.log("jquery is linked");
+  console.log("document is ready");
 
   // get current weather
     let weatherUrl = 'http://api.wunderground.com/api/562b8535169e745a/conditions/q/CA/San_Francisco.json';
@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     let weatherAjax = {
       method: 'GET',
-      url: weatherUrl,
+      url: weatherUrl, // why not just put the url string here?
       success: wthrSuccess
     };
 
@@ -47,11 +47,11 @@ $(document).ready(function() {
         let newsArticle = newsData.results[i];
         let carouselDivActive = `<div class="carousel-item active"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}"" target="_blank"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
         let carouselDiv = `<div class="carousel-item"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}" target="_blank"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
-          if (i === 0) {
-            $(".carousel-inner").append(carouselDivActive);
-          } else {
-            $(".carousel-inner").append(carouselDiv);
-          };
+        if (i === 0) {
+          $(".carousel-inner").append(carouselDivActive);
+        } else {
+          $(".carousel-inner").append(carouselDiv);
+        };
         };
       };
 
@@ -79,6 +79,7 @@ $(document).ready(function() {
 
         });
 
+    // might be more readable to have this code run right after these 3 ajax objects are defined
     $.ajax(weatherAjax);
     $.ajax(quotesAjax);
     $.ajax(newsAjax);
