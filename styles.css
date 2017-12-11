@@ -1,19 +1,29 @@
 body {
+  color: #666666;
+}
+.section-styling {
+  padding: 10px 0;
+  margin-bottom: 10px;
 }
 
-.weather {
-  height: 50px;
+#weather p {
+  margin: 0;
+  font-size: 14px;
 }
 
-.header {
+#shadow {
   box-shadow: 0 8px 6px -3px lightgray;
 }
 
-h1 {
-  color: blue;
-  padding: 20px;
+.quote-styling {
+  text-align: center;
+  font-style: italic;
 }
 
-#newsCarousel {
-  max-height: 400px;
+#author {
+  font-weight: 200;
+  color: #999999;
+}
+.btn {
+  margin: 20px 0;
 }
