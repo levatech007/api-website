@@ -12,31 +12,43 @@
 
 	<body>
 		<div class="container">
-			<div class="row header">
+			<div class="row section-styling" id="shadow">
 				<div class="col-md-8"><h1>Personal Dashboard</h1></div>
-				<div class="col-md-4 weather">Here is weather info</div>
+				<div class="col-md-4" id="weather"></div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-8"><h1>Quote of the day</h1></div>
+			<div class="row justify-content-md-center section-styling">
+				<div class="col-md-10 quote-styling" id="quote"></div>
+				<div class="col-md-10 quote-styling" id="author"></div>
 			</div>
 
-
-			<div class="row">
+			<div class="row section-styling">
 				<div class="col-md-8">
 					<div id="newsCarousel" class="carousel slide" data-ride="carousel">
   					<div class="carousel-inner"></div>
-						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Previous</span>
-					  </a>
-					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Next</span>
-					  </a>
-				<div class="col-md-4"></div>
+							<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						  </a>
+						  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Next</span>
+						  </a>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+          <form>
+            <div class="form-group">
+              <label class="col-form-label" for="query">What would you like to cook today?</label>
+              <input type="text" class="form-control" id="query"  name="q" placeholder="Enter food name...">
+              <button type="submit" class="btn btn-primary">Find recipes!</button>
+            </div>
+          </form>
+				</div>
 			</div>
 		</div>
+	</div>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
