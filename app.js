@@ -12,13 +12,30 @@ $(document).ready(function() {
     }
 
     function wthrSuccess(weatherData) {
-      console.log(weatherData);
       var location = weatherData.current_observation.display_location.full;
       var temp_f = weatherData.current_observation.temp_f;
-      console.log(`Current temperature in ${location} is ${temp_f}F`);
+      var weather = weatherData.current_observation.weather.toLowerCase();
+      $("#weather").append(`<p>Today's weather in ${location} is expected to be ${weather}. The temperature is currently ${temp_f} F.</p>`);
     };
 
     $.ajax(weatherAjax);
+
+    // inspirational quote section ajax
+    let quotesAjax = {
+      method: 'GET',
+      url: 'http://quotes.rest/qod.json',
+      success: quoteSuccess
+    };
+
+    function quoteSuccess(quoteData) {
+      let quote = quoteData.contents.quotes[0].quote;
+      let author = quoteData.contents.quotes[0].author;
+      console.log(author);
+      $("#quote").append(`<p>"${quote}"</p>`)
+      $("#author").append(`<p>- ${author}</p>`);
+      }
+
+      $.ajax(quotesAjax);
 
       //add top stories to carousel
       let newsUrl = 'http://api.nytimes.com/svc/topstories/v2/national.json?api-key=674c541230f945f8b5a1a37b3b2e5013'
@@ -29,8 +46,7 @@ $(document).ready(function() {
       }
 
       function newsSuccess(newsData) {
-        //let newsArr = newsData.results;
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 5; i++) {
           let newsArticle = newsData.results[i];
           let carouselDivActive = `<div class="carousel-item active"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
           let carouselDiv = `<div class="carousel-item"><img class="d-block w-100" src="${newsArticle.multimedia[4].url}"><div class="carousel-caption d-none d-md-block"><a href="${newsArticle.url}"><h3>${newsArticle.title}</h3></a><p>${newsArticle.abstract}</p></div></div>`
@@ -39,11 +55,30 @@ $(document).ready(function() {
             } else {
               $(".carousel-inner").append(carouselDiv);
             };
+          };
         };
-
-      };
 
       $.ajax(newsAjax);
 
+
+      //zomato recipe search
+      $('form').on('submit', function(event){
+        event.preventDefault();
+        let cookbookUrl = 'http://food2fork.com/api/search?key=b06b071773d9e170d67e6ccc6ae1bb4c'
+
+          $.ajax({
+            method: 'GET',
+            url: cookbookUrl,
+            data: $("form").serialize(),
+            dataType: 'json',
+            success: cookbookSuccess
+          });
+
+          function cookbookSuccess(recipesData){
+            
+          console.log(recipesData);
+          }
+
+        });
 
 });
