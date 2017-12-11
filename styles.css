@@ -35,6 +35,11 @@ body {
   color: #333333;
 }
 
+.carousel-item img {
+  height: 500px;
+  max-height: 500px;
+}
+
 #author {
   font-weight: 200;
   color: #999999;
